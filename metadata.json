@@ -1,0 +1,6 @@
+{
+  "name": "Jelajah Dunia IPA - Sains Interaktif Kelas 1–3 SD",
+  "description": "Game edukasi sains interaktif untuk anak SD Kelas 1–3 dengan petualangan dunia, eksperimen virtual di mini lab, panca indera, wujud benda, dan misi harian bersama Kiko.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
