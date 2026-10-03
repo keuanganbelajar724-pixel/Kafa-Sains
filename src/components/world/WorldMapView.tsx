@@ -8,7 +8,6 @@ import React, { useState } from 'react';
 import {
   Compass,
   Star,
-  Lock,
   ArrowRight,
   CheckCircle2,
   Sparkles,
@@ -149,13 +148,13 @@ export const WorldMapView: React.FC<WorldMapViewProps> = ({
         {/* Map Legend Footer */}
         <div className="relative z-10 flex items-center justify-between text-xs text-white/80 border-t border-white/15 pt-3">
           <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-              <span>Wilayah Terbuka</span>
+            <span className="flex items-center gap-1.5 font-bold text-emerald-300">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Semua Wilayah Terbuka Bebas</span>
             </span>
-            <span className="flex items-center gap-1">
-              <Lock className="w-3 h-3 text-amber-400" />
-              <span>Kumpulkan Bintang Emas</span>
+            <span className="flex items-center gap-1 text-amber-300 font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+              <span>Jelajah Tanpa Batas</span>
             </span>
           </div>
           <span className="hidden sm:inline text-sky-200 font-medium">

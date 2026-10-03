@@ -137,9 +137,48 @@ export const ProfileView: React.FC<ProfileViewProps> = ({ profile, onUpdateProfi
         <div className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-xs text-center space-y-1">
           <div className="text-xs font-bold text-slate-500">Lencana</div>
           <div className="text-2xl font-extrabold text-purple-600 tabular-nums">
-            {profile.badges.length}
+            {BADGES_DATA.length}
           </div>
-          <span className="text-[10px] text-slate-400 font-medium">Gelar Kehormatan</span>
+          <span className="text-[10px] text-emerald-600 font-bold">Semua Terbuka 100%</span>
+        </div>
+      </div>
+
+      {/* Badges Showcase in Profile */}
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 className="font-heading font-bold text-xl text-slate-900">
+              Koleksi Lencana Peneliti (Semua Terbuka)
+            </h2>
+            <p className="text-xs text-slate-500">
+              Semua penghargaan dan gelar sains telah terbuka untuk kamu jelajahi dengan bebas!
+            </p>
+          </div>
+          <span className="px-3 py-1 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200 self-start sm:self-auto flex items-center gap-1.5">
+            <Check className="w-3.5 h-3.5" /> Akses Penuh Tanpa Kunci
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {BADGES_DATA.map((badge) => (
+            <div
+              key={badge.id}
+              className="p-3.5 rounded-2xl border border-amber-200/80 bg-amber-50/40 text-center flex flex-col items-center justify-between hover:bg-amber-50 transition-colors"
+            >
+              <div className="w-12 h-12 rounded-xl bg-white border border-amber-200 flex items-center justify-center text-2xl shadow-2xs mb-2">
+                {badge.icon}
+              </div>
+              <h3 className="font-heading font-bold text-xs text-slate-900 leading-snug">
+                {badge.title}
+              </h3>
+              <p className="text-[10px] text-slate-500 mt-1 line-clamp-2">
+                {badge.description}
+              </p>
+              <span className="mt-2 text-[10px] font-bold text-emerald-600 flex items-center gap-1">
+                <Check className="w-3 h-3" /> Terbuka
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

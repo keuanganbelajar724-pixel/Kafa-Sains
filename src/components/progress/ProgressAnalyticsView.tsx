@@ -164,24 +164,21 @@ export const ProgressAnalyticsView: React.FC<ProgressAnalyticsViewProps> = ({ pr
               Setiap capaian belajar memberikan tanda kehormatan peneliti cilik.
             </p>
           </div>
-          <span className="text-xs font-bold px-3 py-1 rounded-xl bg-amber-50 text-amber-800 border border-amber-200">
-            {profile.badges.length} / {BADGES_DATA.length} Diraih
+          <span className="text-xs font-bold px-3 py-1 rounded-xl bg-amber-50 text-amber-800 border border-amber-200 flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+            <span>{BADGES_DATA.length} / {BADGES_DATA.length} Semua Terbuka (100%)</span>
           </span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {BADGES_DATA.map((badge) => {
-            const isEarned = profile.badges.includes(badge.id);
+            const isEarned = true; // All unlocked and accessible
             return (
               <div
                 key={badge.id}
-                className={`p-4 rounded-3xl border-2 text-center flex flex-col items-center justify-between transition-all ${
-                  isEarned
-                    ? 'bg-white border-amber-300 shadow-sm'
-                    : 'bg-slate-50 border-slate-200 opacity-60'
-                }`}
+                className="p-4 rounded-3xl border-2 text-center flex flex-col items-center justify-between transition-all bg-white border-amber-300 shadow-xs hover:shadow-md"
               >
-                <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-3xl mb-2">
+                <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-3xl mb-2 shadow-2xs">
                   {badge.icon}
                 </div>
                 <div>
@@ -193,13 +190,9 @@ export const ProgressAnalyticsView: React.FC<ProgressAnalyticsViewProps> = ({ pr
                   </p>
                 </div>
                 <div className="mt-3 text-[10px] font-bold">
-                  {isEarned ? (
-                    <span className="text-emerald-600 flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> Diraih
-                    </span>
-                  ) : (
-                    <span className="text-slate-400">Belum Terbuka</span>
-                  )}
+                  <span className="text-emerald-600 flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Terbuka & Diraih
+                  </span>
                 </div>
               </div>
             );

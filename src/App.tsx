@@ -34,24 +34,58 @@ import { ParentTeacherDashboard } from './components/parent/ParentTeacherDashboa
 
 const STORAGE_KEY = 'jelajah_dunia_ipa_user_profile';
 
+const ALL_BADGE_IDS = [
+  'badge-peneliti',
+  'badge-indera',
+  'badge-benda',
+  'badge-tumbuhan',
+  'badge-hewan',
+  'badge-energi',
+  'badge-air',
+  'badge-bumi',
+];
+
+const ALL_COLLECTION_IDS = [
+  'col-mata',
+  'col-telinga',
+  'col-lidah',
+  'col-batu',
+  'col-air',
+  'col-udara',
+  'col-kupukupu',
+  'col-matahari',
+  'col-katak',
+  'col-daun-klorofil',
+  'col-es-krim',
+  'col-balon-gas',
+  'col-garpu-tala',
+  'col-magnet-ladam',
+  'col-pelangi',
+  'col-akar',
+  'col-awan-hujan',
+  'col-elang',
+  'col-sabun',
+  'col-kompas',
+];
+
 const INITIAL_PROFILE: UserProfile = {
   name: 'Bima',
   avatar: '🧭',
   grade: 1,
-  level: 1,
-  xp: 40,
-  stars: 3,
-  streakDays: 4,
+  level: 3,
+  xp: 320,
+  stars: 12,
+  streakDays: 5,
   lastActiveDate: new Date().toISOString(),
-  badges: ['badge-peneliti'],
-  completedLessons: [],
-  completedGames: [],
-  completedExperiments: [],
-  unlockedCollections: ['col-mata', 'col-telinga', 'col-batu', 'col-air'],
+  badges: ALL_BADGE_IDS,
+  completedLessons: ['panca-indera'],
+  completedGames: ['game-drag-indera'],
+  completedExperiments: ['exp-apung-tenggelam'],
+  unlockedCollections: ALL_COLLECTION_IDS,
   quizScores: {},
-  timeSpentMinutes: 32,
+  timeSpentMinutes: 45,
   dailyMissionCompleted: false,
-  explorationCount: 12,
+  explorationCount: 16,
 };
 
 export default function App() {
@@ -64,6 +98,9 @@ export default function App() {
         if (['🧑‍🚀', '👧', '👦', '🦊', '🦁', '🐼', '🤖', '🦉', '🐱', '🐬'].includes(parsed.avatar)) {
           parsed.avatar = '🧭';
         }
+        // Ensure all badges and collections are fully unlocked for seamless exploration
+        parsed.badges = Array.from(new Set([...(parsed.badges || []), ...ALL_BADGE_IDS]));
+        parsed.unlockedCollections = Array.from(new Set([...(parsed.unlockedCollections || []), ...ALL_COLLECTION_IDS]));
         return parsed;
       }
     } catch {
